@@ -5,9 +5,10 @@ import { toggleLoading } from '../../Store/actionCreatos/auth';
 
 const PairPool = ({ title, refetchInterval, chainId, pool, toggleLoading }) => {
   const [data, setData] = useState([]);
+  const APIKEY= 'cqt_rQGjyBRhD8P7hHyCy936CM3x3Try';
 
   const [{ data: apiData }, refetch, cancelRequest] = useAxios({
-    url: `https://api.covalenthq.com/v1/${chainId}/xy=k/${pool}/pools/?quote-currency=USD&format=JSON&page-size=10&key=${process.env.REACT_APP_COVALENT_API_KEY}`,
+    url: `https://api.covalenthq.com/v1/${chainId}/xy=k/${pool}/pools/?quote-currency=USD&format=JSON&page-size=10&key=${APIKEY}`,
     method: 'GET',
     timeout: 20000,
   });

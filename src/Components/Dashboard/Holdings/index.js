@@ -10,6 +10,7 @@ import Item from './Item';
 import { useThemeSwitcher } from 'react-css-theme-switcher';
 
 const COVALENT_URL = 'https://api.covalenthq.com/v1';
+const APIKEY= 'cqt_rQGjyBRhD8P7hHyCy936CM3x3Try';
 
 const Holdings = ({
   title,
@@ -33,17 +34,17 @@ const Holdings = ({
     refetchETH,
     cancelRequestETH,
   ] = useAxios({
-    url: `${COVALENT_URL}/1/address/${reqBody.address}/balances_v2/?key=${process.env.REACT_APP_COVALENT_API_KEY}`,
+    url: `${COVALENT_URL}/1/address/${reqBody.address}/balances_v2/?key=${APIKEY}`,
     method: 'GET',
     timeout: 25000,
   });
 
   const [
-    { data: BSCData, loading: isBSCLoading, error: bscError },
+    { data: BSCData, loading: isBSCLoading, error: bscError }, 
     refetchBSC,
     cancelRequestBSC,
   ] = useAxios({
-    url: `${COVALENT_URL}/56/address/${reqBody.address}/balances_v2/?key=${process.env.REACT_APP_COVALENT_API_KEY}`,
+    url: `${COVALENT_URL}/56/address/${reqBody.address}/balances_v2/?key=${APIKEY}`,
     method: 'GET',
     timeout: 25000,
   });
@@ -53,7 +54,7 @@ const Holdings = ({
     refetchFTM,
     cancelRequestFTM,
   ] = useAxios({
-    url: `${COVALENT_URL}/250/address/${reqBody.address}/balances_v2/?key=${process.env.REACT_APP_COVALENT_API_KEY}`,
+    url: `${COVALENT_URL}/250/address/${reqBody.address}/balances_v2/?key=${APIKEY}`,
     method: 'GET',
     timeout: 25000,
   });
@@ -63,7 +64,7 @@ const Holdings = ({
     refetchMATIC,
     cancelRequestMATIC,
   ] = useAxios({
-    url: `${COVALENT_URL}/137/address/${reqBody.address}/balances_v2/?key=${process.env.REACT_APP_COVALENT_API_KEY}`,
+    url: `${COVALENT_URL}/137/address/${reqBody.address}/balances_v2/?key=${APIKEY}`,
     method: 'GET',
     timeout: 25000,
   });

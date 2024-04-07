@@ -21,7 +21,7 @@ const Transactions = ({
 
   const [{ data: apiData, loading: isLoading, error }, refetch, cancelRequest] =
     useAxios({
-      url: `${COVALENT_URL}/${chainId}/address/${reqBody.address}/transactions_v2/?quote-currency=USD&format=JSON&block-signed-at-asc=false&no-logs=false&key=ckey_0558d0ad7c714d8b894c426821e`,
+      url: `${COVALENT_URL}/${chainId}/address/${reqBody.address}/transactions_v2/?quote-currency=USD&format=JSON&block-signed-at-asc=false&no-logs=false&key=cqt_rQGjyBRhD8P7hHyCy936CM3x3Try`,
       method: 'GET',
       timeout: 20000,
     });

@@ -5,6 +5,7 @@ import AnalyticsChart from "../../Utils/AnalyticsChart";
 
 const Dune = ({ monitored_wallet }) => {
   const [data, setData] = useState({ deposited: [] });
+  const APII = 'rPxM6oRDqDtEJHXd4oOQat17lKv7aMhD';
 
   const sleep = async (ms) => {
     return new Promise((resolve) => {
@@ -16,7 +17,7 @@ const Dune = ({ monitored_wallet }) => {
   useEffect(() => {
     const fetchAnalytics = async () => {
       const header = {
-        "x-dune-api-key": process.env.REACT_APP_DUNE_API_KEY,
+        "x-dune-api-key": APII,
       };
       const resp1 = axios.post(
         "https://api.dune.com/api/v1/query/1262797/execute",

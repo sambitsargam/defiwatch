@@ -6,6 +6,12 @@ const nextConfig = {
     config.externals.push("pino-pretty");
     return config;
   },
+  output: "export",
+  reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
+  trailingSlash: true,
   compiler: {
     styledComponents: true,
   },

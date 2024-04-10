@@ -8,7 +8,7 @@ interface Params {
 }
 
 const creditScores = [452, 720, 540, 836];
-const oldscore = [452, 720, 540, 836];
+const oldscore = [420, 620, 329, 745];
 
 export const ProtocolGridBase = ({ protocolsData }: Params) => {
   const [selectedIds, setSelectedIds] = useState<number[]>([]);

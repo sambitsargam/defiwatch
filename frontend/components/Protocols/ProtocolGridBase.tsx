@@ -8,10 +8,12 @@ interface Params {
 }
 
 const creditScores = [452, 720, 540, 836];
+const oldscore = [452, 720, 540, 836];
 
 export const ProtocolGridBase = ({ protocolsData }: Params) => {
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const [credenceScore, setCredenceScore] = useState<number>();
+  const [fetchedOldScore, setFetchedOldScore] = useState<number | undefined>();
 
   useEffect(() => {
     if (selectedIds.length === 0) {
@@ -23,6 +25,13 @@ export const ProtocolGridBase = ({ protocolsData }: Params) => {
       );
     }
   }, [selectedIds]);
+
+  const fetchOldScore = () => {
+    // Fetch old score from the oldscore array
+    const oldScore = selectedIds.reduce((acc, id) => acc + oldscore[id], 0) /
+      selectedIds.length;
+    setFetchedOldScore(oldScore);
+  };
 
   const handleStoreToIPFS = () => {
     // Code to store data to IPFS
@@ -64,6 +73,12 @@ export const ProtocolGridBase = ({ protocolsData }: Params) => {
           )}
         </HStack>
         <Button onClick={handleStoreToIPFS}>Store to IPFS</Button>
+        <Button onClick={fetchOldScore}>Fetch Old Score</Button>
+        {fetchedOldScore && (
+          <Text color={"green.400"} fontWeight={"bold"}>
+            Old Score: {fetchedOldScore}
+          </Text>
+        )}
       </Center>
       <SimpleGrid mt={12} columns={{ base: 2, md: 3, lg: 4 }} gap={6}>
         {protocolsData.map((p, i) => (

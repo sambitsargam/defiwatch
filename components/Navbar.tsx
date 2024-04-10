@@ -1,7 +1,8 @@
 import { useRouter } from "next/navigation";
-import { Center, Flex, Heading, Spacer } from "@chakra-ui/react";
+import { Center, Flex, Heading, Spacer, Button } from "@chakra-ui/react";
 import { ConnectButton } from "@/components/ConnectButton";
 import { useAccount } from "wagmi";
+import { DarkButton } from "./DarkButton";
 
 export default function Navbar({
   hideConnectWalletBtn,
@@ -30,6 +31,17 @@ export default function Navbar({
         >
           DeFi Watch
         </Heading>
+      </Center>
+      <Center flex="1" justifyContent={"end"}>
+        <Button
+          style={{color: 'red' }}
+          cursor={"pointer"}
+          onClick={() => {
+            router.push("/wallet");
+          }}
+        >
+          Portfolio
+        </Button>
       </Center>
 
       <Center flex="1" justifyContent={"end"}>

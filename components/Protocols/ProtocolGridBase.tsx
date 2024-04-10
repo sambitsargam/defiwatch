@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Box, Center, HStack, SimpleGrid, Text } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import { Box, Center, HStack, SimpleGrid, Text, Button } from "@chakra-ui/react";
 import { ProtocolDataType } from "@/types";
 import { ProtocolGridItem } from "./ProtocolGridItem";
 
@@ -19,10 +19,18 @@ export const ProtocolGridBase = ({ protocolsData }: Params) => {
     } else {
       setCredenceScore(
         selectedIds.reduce((acc, id) => acc + creditScores[id], 0) /
-          selectedIds.length
+        selectedIds.length
       );
     }
   }, [selectedIds]);
+
+  const handleStoreToIPFS = () => {
+    // Code to store data to IPFS
+    // Example: fetch('ipfs-endpoint', { method: 'POST', body: JSON.stringify(data) })
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(error => console.error('Error storing data to IPFS:', error));
+  };
 
   return (
     <Box
@@ -42,7 +50,7 @@ export const ProtocolGridBase = ({ protocolsData }: Params) => {
           bg: "gray.600",
           rounded: "lg",
         },
-      }} 
+      }}
     >
       <Center>
         <HStack fontWeight={"bold"}>
@@ -55,6 +63,7 @@ export const ProtocolGridBase = ({ protocolsData }: Params) => {
             </Text>
           )}
         </HStack>
+        <Button onClick={handleStoreToIPFS}>Store to IPFS</Button>
       </Center>
       <SimpleGrid mt={12} columns={{ base: 2, md: 3, lg: 4 }} gap={6}>
         {protocolsData.map((p, i) => (
